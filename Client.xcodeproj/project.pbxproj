@@ -15,6 +15,12 @@
 		09029CD61ECAE623004EE3B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09029CD41ECAE623004EE3B0 /* LaunchScreen.storyboard */; };
 		09029CE11ECAE623004EE3B0 /* ClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09029CE01ECAE623004EE3B0 /* ClientTests.swift */; };
 		09029CEC1ECAE623004EE3B0 /* ClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09029CEB1ECAE623004EE3B0 /* ClientUITests.swift */; };
+		09029D501ECAEB93004EE3B0 /* ysocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09029D4B1ECAEB93004EE3B0 /* ysocket.swift */; };
+		09029D511ECAEB93004EE3B0 /* ytcpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 09029D4C1ECAEB93004EE3B0 /* ytcpsocket.c */; };
+		09029D521ECAEB93004EE3B0 /* ytcpsocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09029D4D1ECAEB93004EE3B0 /* ytcpsocket.swift */; };
+		09029D531ECAEB93004EE3B0 /* yudpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 09029D4E1ECAEB93004EE3B0 /* yudpsocket.c */; };
+		09029D541ECAEB93004EE3B0 /* yudpsocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09029D4F1ECAEB93004EE3B0 /* yudpsocket.swift */; };
+		09029D621ECAEC4B004EE3B0 /* ZYSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09029D611ECAEC4B004EE3B0 /* ZYSocket.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,12 @@
 		09029CE71ECAE623004EE3B0 /* ClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		09029CEB1ECAE623004EE3B0 /* ClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientUITests.swift; sourceTree = "<group>"; };
 		09029CED1ECAE623004EE3B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09029D4B1ECAEB93004EE3B0 /* ysocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ysocket.swift; sourceTree = "<group>"; };
+		09029D4C1ECAEB93004EE3B0 /* ytcpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ytcpsocket.c; sourceTree = "<group>"; };
+		09029D4D1ECAEB93004EE3B0 /* ytcpsocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ytcpsocket.swift; sourceTree = "<group>"; };
+		09029D4E1ECAEB93004EE3B0 /* yudpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = yudpsocket.c; sourceTree = "<group>"; };
+		09029D4F1ECAEB93004EE3B0 /* yudpsocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = yudpsocket.swift; sourceTree = "<group>"; };
+		09029D611ECAEC4B004EE3B0 /* ZYSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYSocket.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +111,7 @@
 		09029CC71ECAE623004EE3B0 /* Client */ = {
 			isa = PBXGroup;
 			children = (
+				09029D491ECAEB93004EE3B0 /* ZYSocket */,
 				09029CC81ECAE623004EE3B0 /* AppDelegate.swift */,
 				09029CCA1ECAE623004EE3B0 /* ViewController.swift */,
 				09029CCC1ECAE623004EE3B0 /* Main.storyboard */,
@@ -126,6 +139,27 @@
 				09029CED1ECAE623004EE3B0 /* Info.plist */,
 			);
 			path = ClientUITests;
+			sourceTree = "<group>";
+		};
+		09029D491ECAEB93004EE3B0 /* ZYSocket */ = {
+			isa = PBXGroup;
+			children = (
+				09029D4A1ECAEB93004EE3B0 /* ysocket */,
+				09029D611ECAEC4B004EE3B0 /* ZYSocket.swift */,
+			);
+			path = ZYSocket;
+			sourceTree = "<group>";
+		};
+		09029D4A1ECAEB93004EE3B0 /* ysocket */ = {
+			isa = PBXGroup;
+			children = (
+				09029D4B1ECAEB93004EE3B0 /* ysocket.swift */,
+				09029D4C1ECAEB93004EE3B0 /* ytcpsocket.c */,
+				09029D4D1ECAEB93004EE3B0 /* ytcpsocket.swift */,
+				09029D4E1ECAEB93004EE3B0 /* yudpsocket.c */,
+				09029D4F1ECAEB93004EE3B0 /* yudpsocket.swift */,
+			);
+			path = ysocket;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,9 +299,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09029D521ECAEB93004EE3B0 /* ytcpsocket.swift in Sources */,
 				09029CCB1ECAE623004EE3B0 /* ViewController.swift in Sources */,
 				09029CC91ECAE623004EE3B0 /* AppDelegate.swift in Sources */,
+				09029D501ECAEB93004EE3B0 /* ysocket.swift in Sources */,
+				09029D621ECAEC4B004EE3B0 /* ZYSocket.swift in Sources */,
 				09029CD11ECAE623004EE3B0 /* Client.xcdatamodeld in Sources */,
+				09029D511ECAEB93004EE3B0 /* ytcpsocket.c in Sources */,
+				09029D541ECAEB93004EE3B0 /* yudpsocket.swift in Sources */,
+				09029D531ECAEB93004EE3B0 /* yudpsocket.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
