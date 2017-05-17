@@ -21,7 +21,6 @@ class ZYSocket {
 extension ZYSocket {
     
     /// 连接服务器
-    ///
     func connectServe() -> Bool {
         return client.connect(timeout: 5).0
     }
@@ -29,6 +28,9 @@ extension ZYSocket {
     func readMessage() {
         
         DispatchQueue.global().async {
+            
+            
+            
             while true {
                 //读取4个字节的head长度，读出来的是后续这个真实字节流的长度
                 guard let msgLen = self.client.read(4) else {
@@ -39,5 +41,9 @@ extension ZYSocket {
             }
         }
         
+    }
+    
+    func sendMessage(msg: String) {
+        client.send(str: msg)
     }
 }
