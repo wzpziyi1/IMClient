@@ -28,7 +28,20 @@ class ViewController: UIViewController {
 
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        socket.sendMessage(msg: "pppppppp")
+        let msg = "文家场三等奖创建那时快借出去创建哪家。。。。。。。。"
+        let msgData = msg.data(using: .utf8)!
+        var len = msgData.count
+        
+        
+        let headData = Data(bytes: &len, count: 4)
+        
+        var type: Int = 2
+        
+        let typeData = Data(bytes: &type, count: 2)
+        
+        socket.sendMessage(data: headData + typeData + msgData)
+        
+        
     }
 
 }

@@ -43,7 +43,7 @@ extension ZYSocket {
         
     }
     
-    func sendMessage(msg: String) {
-        client.send(str: msg)
+    func sendMessage(data: Data) {
+        client.send(data: data)
     }
 }
