@@ -16,8 +16,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        if socket.connectServe() {
-            print("和服务器建立好连接了")
+        if socket.connectServe(timeout: 10) {
+            
+            socket.readMessage()
         }
         
         /*protocolbuffer使用的规范
@@ -42,21 +43,20 @@ class ViewController: UIViewController {
     }
 
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let msg = "文家场三等奖创建那时快借出去创建哪家。。。。。。。。"
-        let msgData = msg.data(using: .utf8)!
-        var len = msgData.count
+    @IBAction func btnClick(_ sender: UIButton) {
         
-        
-        let headData = Data(bytes: &len, count: 4)
-        
-        var type: Int = 2
-        
-        let typeData = Data(bytes: &type, count: 2)
-        
-        socket.sendMessage(data: headData + typeData + msgData)
-        
-        
+        switch sender.tag {
+        case 0:
+            socket.sendEnterRoom()
+        case 1:
+            socket.sendLeaveRoom()
+        case 2:
+            socket.sendTextMsg("你好，服务器~~")
+        case 3:
+            socket.sendGiftMsg("呜呜呜乌黑的", giftUrlStr: "http://www.baidu.com", giftCount: 90)
+        default:
+            print("未识别消息")
+        }
     }
 
 }
