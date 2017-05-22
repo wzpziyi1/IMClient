@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    fileprivate lazy var socket = ZYSocket(addr: "192.168.99.107", port: 9999)
+    fileprivate lazy var socket = ZYSocket(addr: "192.168.99.110", port: 9999)
     
     override func viewDidLoad() {
         super.viewDidLoad()
