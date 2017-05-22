@@ -29,8 +29,6 @@ extension ZYSocket {
         
         DispatchQueue.global().async {
             
-            
-            
             while true {
                 //读取4个字节的head长度，读出来的是后续这个真实字节流的长度
                 guard let msgLen = self.client.read(4) else {
@@ -46,4 +44,18 @@ extension ZYSocket {
     func sendMessage(data: Data) {
         client.send(data: data)
     }
+    
+    
+//    发送消息的类型：
+    /*
+     进入房间 = 0
+     离开房间 = 1
+     文本 = 2
+     礼物 = 3
+     */
+    
+    func sendEnterRoom() {
+//        let msgData = 
+    }
+    
 }

@@ -21,6 +21,8 @@
 		09029D531ECAEB93004EE3B0 /* yudpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 09029D4E1ECAEB93004EE3B0 /* yudpsocket.c */; };
 		09029D541ECAEB93004EE3B0 /* yudpsocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09029D4F1ECAEB93004EE3B0 /* yudpsocket.swift */; };
 		09029D621ECAEC4B004EE3B0 /* ZYSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09029D611ECAEC4B004EE3B0 /* ZYSocket.swift */; };
+		09D449BE1ED2C02A0088D3B0 /* IMMessage.proto in Resources */ = {isa = PBXBuildFile; fileRef = 09D449BD1ED2C02A0088D3B0 /* IMMessage.proto */; };
+		09D449C01ED2C1750088D3B0 /* Immessage.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D449BF1ED2C1750088D3B0 /* Immessage.proto.swift */; };
 		A7B393E9D896F43FF194A9CD /* Pods_Client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 397ECA54FF86B8B7153BCAAB /* Pods_Client.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +65,8 @@
 		09029D4E1ECAEB93004EE3B0 /* yudpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = yudpsocket.c; sourceTree = "<group>"; };
 		09029D4F1ECAEB93004EE3B0 /* yudpsocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = yudpsocket.swift; sourceTree = "<group>"; };
 		09029D611ECAEC4B004EE3B0 /* ZYSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYSocket.swift; sourceTree = "<group>"; };
+		09D449BD1ED2C02A0088D3B0 /* IMMessage.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IMMessage.proto; sourceTree = "<group>"; };
+		09D449BF1ED2C1750088D3B0 /* Immessage.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Immessage.proto.swift; sourceTree = "<group>"; };
 		397ECA54FF86B8B7153BCAAB /* Pods_Client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70958CB14E8DB016C2CA2E77 /* Pods-Client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Client.release.xcconfig"; path = "Pods/Target Support Files/Pods-Client/Pods-Client.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +130,8 @@
 				09029CD41ECAE623004EE3B0 /* LaunchScreen.storyboard */,
 				09029CD71ECAE623004EE3B0 /* Info.plist */,
 				09029CCF1ECAE623004EE3B0 /* Client.xcdatamodeld */,
+				09D449BD1ED2C02A0088D3B0 /* IMMessage.proto */,
+				09D449BF1ED2C1750088D3B0 /* Immessage.proto.swift */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -299,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09D449BE1ED2C02A0088D3B0 /* IMMessage.proto in Resources */,
 				09029CD61ECAE623004EE3B0 /* LaunchScreen.storyboard in Resources */,
 				09029CD31ECAE623004EE3B0 /* Assets.xcassets in Resources */,
 				09029CCE1ECAE623004EE3B0 /* Main.storyboard in Resources */,
@@ -375,6 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09029D521ECAEB93004EE3B0 /* ytcpsocket.swift in Sources */,
+				09D449C01ED2C1750088D3B0 /* Immessage.proto.swift in Sources */,
 				09029CCB1ECAE623004EE3B0 /* ViewController.swift in Sources */,
 				09029CC91ECAE623004EE3B0 /* AppDelegate.swift in Sources */,
 				09029D501ECAEB93004EE3B0 /* ysocket.swift in Sources */,
@@ -637,6 +645,7 @@
 				09029CF21ECAE623004EE3B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		09029CF31ECAE623004EE3B0 /* Build configuration list for PBXNativeTarget "ClientTests" */ = {
 			isa = XCConfigurationList;
@@ -645,6 +654,7 @@
 				09029CF51ECAE623004EE3B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		09029CF61ECAE623004EE3B0 /* Build configuration list for PBXNativeTarget "ClientUITests" */ = {
 			isa = XCConfigurationList;
@@ -653,6 +663,7 @@
 				09029CF81ECAE623004EE3B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
