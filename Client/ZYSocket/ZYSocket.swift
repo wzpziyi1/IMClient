@@ -14,6 +14,7 @@ import ProtocolBuffers
  离开房间 = 1
  文本 = 2
  礼物 = 3
+ 心跳包 = 100
  */
 
 enum MessageType : Int {
@@ -21,9 +22,20 @@ enum MessageType : Int {
     case leave = 1
     case text = 2
     case gift = 3
+    case heartBeat = 100
 }
 
+protocol ZYSocketDelegate: class {
+    func socket(_ socket: ZYSocket, enterRoom user: UserInfo)
+    func socket(_ socket: ZYSocket, leaveRoom user: UserInfo)
+    func socket(_ socket: ZYSocket, textMsg: ChatMessage)
+    func socket(_ socket: ZYSocket, giftMsg: GiftMessage)
+}
+
+
 class ZYSocket {
+    
+    weak var delegate: ZYSocketDelegate?
     
     fileprivate var client: TCPClient
     
@@ -93,17 +105,18 @@ extension ZYSocket {
     fileprivate func handleMsg(_ type: Int, msgData: Data) {
         
         switch type {
-        case 0, 1:
+        case 0:
             let user = try! UserInfo.parseFrom(data: msgData)
-            print(user.name, user.level, user.iconUrl)
+            delegate?.socket(self, enterRoom: user)
+        case 1:
+            let user = try! UserInfo.parseFrom(data: msgData)
+            delegate?.socket(self, leaveRoom: user)
         case 2:
             let chatMsg = try! ChatMessage.parseFrom(data: msgData)
-            print(chatMsg.text)
-            print(chatMsg.user.name, chatMsg.user.level, chatMsg.user.iconUrl)
+            delegate?.socket(self, textMsg: chatMsg)
         case 3:
             let giftMsg = try! GiftMessage.parseFrom(data: msgData)
-            print(giftMsg.giftUrl, giftMsg.giftname, giftMsg.giftcount)
-            print(giftMsg.user.name, giftMsg.user.level, giftMsg.user.iconUrl)
+            delegate?.socket(self, giftMsg: giftMsg)
         default:
             print("其他类型消息")
         }
@@ -141,6 +154,12 @@ extension ZYSocket {
         
         let giftData = (try! giftMsg.build()).data()
         sendMsg(type: MessageType(rawValue: 3)!, data: giftData)
+    }
+    
+    //发送心跳包
+    func sendHeartBeat() {
+        let msgData = "heart".data(using: .utf8)!
+        sendMsg(type: MessageType(rawValue: 100)!, data: msgData)
     }
     
     //发送消息逻辑处理

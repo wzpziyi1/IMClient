@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    fileprivate lazy var socket = ZYSocket(addr: "192.168.99.110", port: 9999)
+    fileprivate lazy var socket = ZYSocket(addr: "10.17.170.220", port: 9999)
+    fileprivate var timer: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +19,13 @@ class ViewController: UIViewController {
         
         if socket.connectServe(timeout: 10) {
             
+            print("链接成功")
+            
             socket.readMessage()
+            
+            //连接上服务器，开始发送心跳包
+            timer = Timer(fireAt: Date(), interval: 9, target: self, selector: #selector(sendHeartBeat), userInfo: nil, repeats: true)
+            RunLoop.main.add(timer, forMode: .commonModes)
         }
         
         /*protocolbuffer使用的规范
@@ -42,6 +49,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    deinit {
+        timer.invalidate()
+        timer = nil
+    }
     
     @IBAction func btnClick(_ sender: UIButton) {
         
@@ -59,5 +70,8 @@ class ViewController: UIViewController {
         }
     }
 
+    @objc func sendHeartBeat() {
+        socket.sendHeartBeat()
+    }
 }
 
